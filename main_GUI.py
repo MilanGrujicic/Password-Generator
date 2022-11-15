@@ -23,6 +23,8 @@ center_y = int(screen_height/2 - window_height / 10)
 # Set the position of the window to the center of the screen
 root.geometry(f"{window_width}x{window_height}+{center_x}+{center_y}")
 
+root.resizable(False, False)
+
 
 def generatePasswordButtonClicked():
     try:
@@ -38,14 +40,22 @@ def cancelButtonClicked():
     root.destroy()
 
 
+def altKeyPressL_Pressed(event):
+    root.destroy()
+
+
 generateButton = Button(root, text='Create Password',
                         command=generatePasswordButtonClicked)
 
 generateButton.pack()
 
-closeButton = Button(root, text='Close', command=cancelButtonClicked)
+closeButton = Button(root, text='Cl\u0332ose', command=cancelButtonClicked)
+
+closeButton.bind('<Alt-KeyPress-l>', altKeyPressL_Pressed)
 
 closeButton.config(bg='#9FD996')
+
+closeButton.focus()
 
 closeButton.pack()
 
