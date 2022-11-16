@@ -26,14 +26,23 @@ root.geometry(f"{window_width}x{window_height}+{center_x}+{center_y}")
 root.resizable(False, False)
 
 
-def generatePasswordButtonClicked():
+def validationCheck():
     try:
-        lenght = int(userInput.get())
+        try:
+            lenght = int(userInput.get())
+        except ValueError:
+            resultLabel.configure(
+                text="Input cannot be string nor symbol\nPlease insert value betwixt 1 and 95")
+        else:
+            generatePasswordButtonClicked(lenght)
     except ValueError:
-        resultLabel.configure(text="Wrong input")
-    else:
-        password = ''.join(random.sample(random_string, lenght))
-        resultLabel.configure(text="Password: " + password)
+        resultLabel.configure(
+            text="Input cannot be less than 0 nor greater than 95\nPlease insert value betwixt 1 and 95")
+
+
+def generatePasswordButtonClicked(lenght):
+    password = ''.join(random.sample(random_string, lenght))
+    resultLabel.configure(text="Password: \n" + password)
 
 
 def cancelButtonClicked():
@@ -45,7 +54,7 @@ def altKeyPressL_Pressed(event):
 
 
 generateButton = Button(root, text='Create Password',
-                        command=generatePasswordButtonClicked)
+                        command=validationCheck)
 
 generateButton.pack()
 
