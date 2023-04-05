@@ -6,8 +6,7 @@ random_string = string.ascii_letters + string.digits + string.punctuation
 
 root = Tk()
 
-root.title(
-    "Password Generator - Generate password with lenght from 1 to 94 characters")
+root.title("Password Generator - Generate password with lenght from 1 to 94 characters")
 
 window_width = 400
 window_height = 200

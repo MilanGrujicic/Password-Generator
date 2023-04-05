@@ -8,6 +8,7 @@ MAX_LENGTH = 30
 MIN_LENGTH = 8
 remaining = MAX_LENGTH - 2  # at least 1 lettter, number and special character
 
+
 def generate_password(n_letters, n_numbers, n_symbols):
     """Generate random password with number of letters, numbers and symbols defined by user"""
     letters = "".join(random.sample(string.ascii_letters, n_letters))
@@ -27,24 +28,28 @@ def get_number(prompt, range=None):
             print("[!]Invalid input.  Try again")
         except ValueError:
             print("[!]Invalid input.  Try again")
- 
+
 
 # User inputs amount of special characters, numbers and letters
-special = get_number(f"[-] How many special characters (1-{remaining}): ", (1, remaining))
+special = get_number(
+    f"[-] How many special characters (1-{remaining}): ", (1, remaining)
+)
 remaining = remaining - special + 1
- 
+
 if remaining > 2:
     numbers = get_number(f"[-] How many numbers (1-{remaining}): ", (1, remaining))
 else:
     numbers = 1
- 
+
 remaining = remaining - numbers + 1
 if remaining > 1:
     min_letters = max(1, MIN_LENGTH - (special + numbers))
-    letters = get_number(f"[-] How many letters ({min_letters}-{remaining}): ", (min_letters, remaining))
+    letters = get_number(
+        f"[-] How many letters ({min_letters}-{remaining}): ", (min_letters, remaining)
+    )
 else:
     letters = 1
-        
+
 # Creates password based on user's input
 password = generate_password(letters, numbers, special)
 print(f"[+] Your password: {password}")
