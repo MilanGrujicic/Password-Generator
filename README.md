@@ -1,8 +1,14 @@
-Simple easy to use password generator.
+# Password Generator
+## Description
+An easy-to-use password generator.
 
-Usage:
+## Prerequisites
+- Python 3.10.12;
+- Tkinter library for GUI
+
+## Usage:
+### CLI
 `$ python3 main_CLI.py`
 
-or
-
+### GUI
 `$ python3 main_GUI.py`
