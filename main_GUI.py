@@ -24,7 +24,6 @@ root.geometry(f"{window_width}x{window_height}+{center_x}+{center_y}")
 
 root.resizable(False, False)
 
-
 def validationCheck():
     try:
         try:
@@ -40,15 +39,12 @@ def validationCheck():
             text="Input cannot be less than 0 nor greater than 95\nPlease insert value betwixt 1 and 95"
         )
 
-
 def generatePasswordButtonClicked(lenght):
     password = "".join(random.sample(random_string, lenght))
     resultLabel.configure(text="Password: \n" + password)
 
-
 def cancelButtonClicked():
     root.destroy()
-
 
 def altKeyPressL_Pressed(event):
     root.destroy()
