@@ -33,14 +33,14 @@ def get_input(prompt, range=None):
 special = get_input(
     f"[-] How many special characters (1-{remaining}): ", (1, remaining)
 )
-remaining = remaining - special + 1
+remaining -= special + 1
 
 if remaining > 2:
     numbers = get_input(f"[-] How many numbers (1-{remaining}): ", (1, remaining))
 else:
     numbers = 1
 
-remaining = remaining - numbers + 1
+remaining -= numbers + 1
 if remaining > 1:
     min_letters = max(1, MIN_LENGTH - (special + numbers))
     letters = get_input(
