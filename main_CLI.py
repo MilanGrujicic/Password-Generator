@@ -16,7 +16,6 @@ def generate_password(n_letters, n_numbers, n_symbols):
     password = letters + numbers + symbols
     return "".join(random.sample(password, len(password)))
 
-
 def get_input(prompt, range=None):
     """Force user to input number. If range provided, input must be in range."""
     while True:
