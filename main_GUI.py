@@ -7,7 +7,7 @@ class GUI:
         self.window = Tk()
         self.window.title("GUI")
         self.window.config(bg="#FF3131")
-        self.window.geometry("500x500")
+        self.window.geometry("500x600")
 
         # LOGO
         self.logo = PhotoImage(file="logo.png")  # Load the image
@@ -20,13 +20,12 @@ class GUI:
 
         # Centering the image in the canvas
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
-        
-        self.window.mainloop()
 
         # BUTTONS
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
-        self.close_button.grid(row=1, column=0, pady=5)
+        self.close_button.grid(row=1, column=0)
 
+        self.window.mainloop()
 
 if __name__ == "__main__":
     app = GUI()
