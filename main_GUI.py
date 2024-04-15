@@ -28,6 +28,9 @@ class GUI:
         
         self.window.mainloop()
 
+        # BUTTONS
+        self.close_button = Button(text="Exit")
+
 
 if __name__ == "__main__":
     app = GUI()
