@@ -2,16 +2,11 @@ from logo import logo
 from utils import *
 from tkinter import *
 
-class input():
-    def __init__(self, type, value):
-        self.type = type
-        self.value = value
-
 class GUI:
     def __init__(self):
         self.window = Tk()
         self.window.title("GUI")
-        self.window.config(bg="#004AAD")
+        self.window.config(bg="#FF3131")
         self.window.geometry("500x500")
 
         # LOGO
@@ -29,7 +24,8 @@ class GUI:
         self.window.mainloop()
 
         # BUTTONS
-        self.close_button = Button(text="Exit")
+        self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
+        self.close_button.grid(row=1, column=0, pady=5)
 
 
 if __name__ == "__main__":
