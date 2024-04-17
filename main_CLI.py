@@ -7,7 +7,6 @@ MAX_LENGTH = 30
 MIN_LENGTH = 8
 remaining = MAX_LENGTH - 2  # at least 1 lettter, number and special character
 
-# User inputs amount of special characters, numbers and letters
 special = get_input(
     f"[-] How many special characters (1-{remaining}): ", (1, remaining)
 )
@@ -27,6 +26,5 @@ if remaining > 1:
 else:
     letters = 1
 
-# Creates password based on user's input
 password = generate_password(letters, numbers, special)
 print(f"[+] Your password: {password}")
