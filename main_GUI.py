@@ -21,11 +21,18 @@ class GUI:
         # Centering the image in the canvas
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
 
+
+        # SCALE 
+        self.Scala = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
+        self.Scala.grid(row=1, column=0)
+        
+
         # BUTTONS
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
-        self.close_button.grid(row=1, column=0)
+        self.close_button.grid(row=2, column=0)
 
         self.window.mainloop()
+
 
 if __name__ == "__main__":
     app = GUI()
