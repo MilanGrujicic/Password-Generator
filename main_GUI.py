@@ -14,7 +14,7 @@ class GUI:
 
         # Create a canvas with the size of the logo or larger
         canvas_width = self.logo.width()
-        canvas_height = self.logo.height() // 2
+        canvas_height = self.logo.height() // 2.5
         canvas = Canvas(self.window, width=canvas_width, height=canvas_height, bg="#FF3131", highlightthickness=0)
         canvas.grid(row=0, column=0)
 
@@ -40,8 +40,12 @@ class GUI:
         self.scale_characters.grid(row=6, column=0, pady=5)
 
         # BUTTONS
+
+        self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
+        self.create_password.grid(row=8, column=0, pady=5)
+        
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
-        self.close_button.grid(row=7, column=0)
+        self.close_button.grid(row=9, column=0)
 
         self.window.mainloop()
 
