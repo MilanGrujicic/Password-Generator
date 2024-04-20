@@ -53,9 +53,6 @@ class GUI:
         numbers = self.scale_numbers.get()
         letters = self.scale_letters.get()
         special = self.scale_characters.get()
-        print(f"Numbers: {numbers}")
-        print(f"Letters: {letters}")
-        print(f"Special characters: {special}")
         print(generate_password(numbers, letters, special))
 
 
