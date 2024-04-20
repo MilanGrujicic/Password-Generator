@@ -41,13 +41,22 @@ class GUI:
 
         # BUTTONS
 
-        self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
+        self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.get_scale_values)
         self.create_password.grid(row=8, column=0, pady=5)
         
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
         self.close_button.grid(row=9, column=0)
 
         self.window.mainloop()
+
+    def get_scale_values(self):
+        numbers = self.scale_numbers.get()
+        letters = self.scale_letters.get()
+        special = self.scale_characters.get()
+        print(f"Numbers: {numbers}")
+        print(f"Letters: {letters}")
+        print(f"Special characters: {special}")
+        print(generate_password(numbers, letters, special))
 
 
 if __name__ == "__main__":
