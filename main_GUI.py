@@ -39,13 +39,23 @@ class GUI:
         self.scale_characters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
         self.scale_characters.grid(row=6, column=0, pady=5)
 
-        # BUTTONS
+        # BUTTON 2
 
         self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.get_scale_values)
-        self.create_password.grid(row=8, column=0, pady=5)
+        self.create_password.grid(row=7, column=0, pady=5)
         
+        # OUTPUT LABEL AND TEXT
+
+        self.your_password_is = Label(text="Your password is: ",  bg="#FF3131", fg="white")
+        self.your_password_is.grid_forget()
+
+        self.password = Text(bg="#FF3131", fg="white", height=1, width=10, borderwidth=0)
+        self.password.grid_forget()
+
+        # BUTTON 2
+
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
-        self.close_button.grid(row=9, column=0)
+        self.close_button.grid(row=10, column=0)
 
         self.window.mainloop()
 
@@ -53,8 +63,14 @@ class GUI:
         numbers = self.scale_numbers.get()
         letters = self.scale_letters.get()
         special = self.scale_characters.get()
-        print(generate_password(numbers, letters, special))
+        password = generate_password(numbers, letters, special)
+        self.make_output_visible(password)
 
+    def make_output_visible(self, password):
+        self.your_password_is.grid(row=8, column=0, pady=5)
+        self.password.insert(END, password)
+        self.password.configure(state="disabled")
+        self.password.grid(row=9, column=0, pady=5)
 
 if __name__ == "__main__":
     app = GUI()
