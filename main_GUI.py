@@ -57,6 +57,7 @@ class GUI:
         self.window.mainloop()
 
     def parse_scale_values_into_password(self):
+        '''Once the button generate password is clicked, get values from scales and creates a password.'''
         numbers = self.scale_numbers.get()
         letters = self.scale_letters.get()
         special = self.scale_special_characters.get()
@@ -69,12 +70,14 @@ class GUI:
             self.make_output_visible(password)
 
     def make_output_visible(self, password):
+        '''Once the password is generated, display it to the user.'''
         self.your_password_is.grid(row=8, column=0, pady=5)
         self.password.insert(END, password)
         self.password.configure(state="disabled")
         self.password.grid(row=9, column=0, pady=7)
 
     def is_password_text_empty(self):
+        '''Verify whether the field the password is displayed is empty or not.'''
         content = self.password.get("1.0", END).strip()  # Get the content of the Text widget.
         if not content:
             return False
