@@ -21,6 +21,8 @@ class GUI:
         # Centering the image in the canvas
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
         
+        # WIDGETS
+
         self.numbers = Label(self.window, text="Letters", bg="#FF3131", fg="white")
         self.numbers.grid(row=1, column=0)
 
@@ -36,33 +38,27 @@ class GUI:
         self.special_characters = Label(self.window, text="Special Characters", bg="#FF3131", fg="white")
         self.special_characters.grid(row=5, column=0)
 
-        self.scale_characters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
-        self.scale_characters.grid(row=6, column=0, pady=5)
+        self.scale_special_characters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
+        self.scale_special_characters.grid(row=6, column=0, pady=5)
 
-        # BUTTON 2
-
-        self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.get_scale_values)
+        self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.parse_scale_values_into_password)
         self.create_password.grid(row=7, column=0, pady=5)
-        
-        # OUTPUT LABEL AND TEXT
 
         self.your_password_is = Label(text="Your password is: ",  bg="#FF3131", fg="white")
         self.your_password_is.grid_forget()
 
-        self.password = Text(bg="#FF3131", fg="white", height=1, width=10, borderwidth=0)
+        self.password = Text(bg="#FF3131", fg="white", height=1, width=15, borderwidth=0)
         self.password.grid_forget()
-
-        # BUTTON 2
 
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
         self.close_button.grid(row=10, column=0)
 
         self.window.mainloop()
 
-    def get_scale_values(self):
+    def parse_scale_values_into_password(self):
         numbers = self.scale_numbers.get()
         letters = self.scale_letters.get()
-        special = self.scale_characters.get()
+        special = self.scale_special_characters.get()
         password = generate_password(numbers, letters, special)
         self.make_output_visible(password)
 
@@ -70,7 +66,7 @@ class GUI:
         self.your_password_is.grid(row=8, column=0, pady=5)
         self.password.insert(END, password)
         self.password.configure(state="disabled")
-        self.password.grid(row=9, column=0, pady=5)
+        self.password.grid(row=9, column=0, pady=7)
 
 if __name__ == "__main__":
     app = GUI()
