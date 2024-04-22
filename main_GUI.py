@@ -61,13 +61,25 @@ class GUI:
         letters = self.scale_letters.get()
         special = self.scale_special_characters.get()
         password = generate_password(numbers, letters, special)
-        self.make_output_visible(password)
+        if lambda:self.is_password_text_empty():
+            self.make_output_visible(password)
+        if lambda:not self.is_password_text_empty():
+            self.password.configure(state="normal")
+            self.password.delete('1.0', END)
+            self.make_output_visible(password)
 
     def make_output_visible(self, password):
         self.your_password_is.grid(row=8, column=0, pady=5)
         self.password.insert(END, password)
         self.password.configure(state="disabled")
         self.password.grid(row=9, column=0, pady=7)
+
+    def is_password_text_empty(self):
+        content = self.password.get("1.0", END).strip()  # Get the content of the Text widget.
+        if not content:
+            return False
+        else:
+            return True
 
 if __name__ == "__main__":
     app = GUI()
