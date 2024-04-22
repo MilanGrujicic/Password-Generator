@@ -14,7 +14,7 @@ class GUI:
 
         # Create a canvas with the size of the logo or larger
         canvas_width = self.logo.width()
-        canvas_height = self.logo.height() // 2.5
+        canvas_height = self.logo.height() // 2.9
         canvas = Canvas(self.window, width=canvas_width, height=canvas_height, bg="#FF3131", highlightthickness=0)
         canvas.grid(row=0, column=0)
 
@@ -50,8 +50,7 @@ class GUI:
         self.password = Text(bg="#FF3131", fg="white", height=1, width=15, borderwidth=0)
         self.password.grid_forget()
 
-        self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
-        self.close_button.grid(row=10, column=0)
+        self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy).place(x=195,y=530)
 
         self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#FF3131", fg="white", font=("Arial", 10, "italic")).place(x=0,y=580)
 
