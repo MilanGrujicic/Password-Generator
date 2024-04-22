@@ -53,6 +53,8 @@ class GUI:
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy)
         self.close_button.grid(row=10, column=0)
 
+        self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#FF3131", fg="white", font=("Arial", 10, "italic")).place(x=0,y=580)
+
         self.window.mainloop()
 
     def parse_scale_values_into_password(self):
