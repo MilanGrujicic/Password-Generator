@@ -5,7 +5,7 @@ from tkinter import *
 class GUI:
     def __init__(self):
         self.window = Tk()
-        self.window.title("GUI")
+        self.window.title("Password Generator")
         self.window.config(bg="#FF3131")
         self.window.geometry("500x600")
 
