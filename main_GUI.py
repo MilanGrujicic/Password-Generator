@@ -20,7 +20,7 @@ class GUI:
 
         # Centering the image in the canvas
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
-        
+
         # WIDGETS
 
         self.numbers = Label(self.window, text="Letters", bg="#191919", fg="white", font=("Arial", 12, "bold"))
@@ -44,7 +44,7 @@ class GUI:
         self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.parse_scale_values_into_password)
         self.create_password.grid(row=7, column=0, pady=5)
 
-        self.your_password_is = Label(text="Your password is: ", bg="#191919", fg="white")
+        self.your_password_is = Label(text="Your password is: ", bg="#191919", fg="white", font=("Arial", 10, "bold"))
         self.your_password_is.grid_forget()
 
         self.password = Text(bg="#191919", fg="white", height=1, width=15, borderwidth=0)
