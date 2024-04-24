@@ -10,7 +10,7 @@ class GUI:
         self.window.geometry("500x600")
 
         # LOGO
-        self.logo = PhotoImage(file="logo_black.png")  # Load the image
+        self.logo = PhotoImage(file="images/logo_black.png")  # Load the image
 
         # Create a canvas with the size of the logo or larger
         canvas_width = self.logo.width()
@@ -23,19 +23,19 @@ class GUI:
 
         # WIDGETS
 
-        self.numbers = Label(self.window, text="Letters", bg="#191919", fg="white", font=("Arial", 12, "bold"))
+        self.numbers = Label(self.window, text="Letters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
         self.numbers.grid(row=1, column=0)
 
         self.scale_numbers = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
         self.scale_numbers.grid(row=2, column=0, pady=5)
 
-        self.letters = Label(self.window, text="Numbers", bg="#191919", fg="white", font=("Arial", 12, "bold"))
+        self.letters = Label(self.window, text="Numbers", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
         self.letters.grid(row=3, column=0)
 
         self.scale_letters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
         self.scale_letters.grid(row=4, column=0, pady=5)
 
-        self.special_characters = Label(self.window, text="Special Characters", bg="#191919", fg="white", font=("Arial", 12, "bold"))
+        self.special_characters = Label(self.window, text="Special Characters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
         self.special_characters.grid(row=5, column=0)
 
         self.scale_special_characters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
@@ -44,7 +44,7 @@ class GUI:
         self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.parse_scale_values_into_password)
         self.create_password.grid(row=7, column=0, pady=5)
 
-        self.your_password_is = Label(text="Your password is: ", bg="#191919", fg="white", font=("Arial", 10, "bold"))
+        self.your_password_is = Label(text="Your password is: ", bg="#191919", fg="white", font=("Helvetica", 10, "bold"))
         self.your_password_is.grid_forget()
 
         self.password = Text(bg="#191919", fg="white", height=1, width=15, borderwidth=0)
@@ -52,7 +52,7 @@ class GUI:
 
         self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy).place(x=195,y=538)
 
-        self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#191919", fg="white", font=("Arial", 10, "italic")).place(x=0,y=580)
+        self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#191919", fg="white", font=("Helvetica", 10, "italic")).place(x=0,y=580)
 
         self.window.mainloop()
 
