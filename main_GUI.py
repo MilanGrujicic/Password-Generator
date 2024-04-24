@@ -31,7 +31,6 @@ class GUI:
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
 
         # WIDGETS
-
         self.numbers = Label(self.window, text="Letters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
         self.numbers.grid(row=1, column=0)
 
