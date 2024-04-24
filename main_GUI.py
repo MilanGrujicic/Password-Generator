@@ -1,6 +1,7 @@
 from logo import logo
 from utils import *
 from tkinter import *
+from PIL import Image, ImageTk
 
 class GUI:
     def __init__(self):
@@ -9,8 +10,16 @@ class GUI:
         self.window.config(bg="#191919")
         self.window.geometry("500x600")
 
-        # LOGO
+        # IMAGES
         self.logo = PhotoImage(file="images/logo_black.png")  # Load the image
+
+        key_image = Image.open("images/key_icon.png")
+        key_image = key_image.resize((20, 20))
+        key_icon = ImageTk.PhotoImage(key_image)
+
+        exit_image = Image.open("images/exit_icon.png")
+        exit_image = exit_image.resize((20, 20))
+        exit_icon = ImageTk.PhotoImage(exit_image)
 
         # Create a canvas with the size of the logo or larger
         canvas_width = self.logo.width()
@@ -41,7 +50,7 @@ class GUI:
         self.scale_special_characters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
         self.scale_special_characters.grid(row=6, column=0, pady=5)
 
-        self.create_password = Button(text="Generate \nPassword", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.parse_scale_values_into_password)
+        self.create_password = Button(text="Generate \nPassword", width=80, bg="#fff500", highlightbackground = "black", border="2", image=key_icon, compound=RIGHT, command=self.parse_scale_values_into_password)
         self.create_password.grid(row=7, column=0, pady=5)
 
         self.your_password_is = Label(text="Your password is: ", bg="#191919", fg="white", font=("Helvetica", 10, "bold"))
@@ -50,7 +59,7 @@ class GUI:
         self.password = Text(bg="#191919", fg="white", height=1, width=15, borderwidth=0)
         self.password.grid_forget()
 
-        self.close_button = Button(text="Exit", width=10, bg="#fff500", highlightbackground = "black", border="2", command=self.window.destroy).place(x=195,y=538)
+        self.close_button = Button(text="Exit", width=80, bg="#fff500", highlightbackground = "black", border="2", image=exit_icon, compound=RIGHT, command=self.window.destroy).place(x=195,y=538)
 
         self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#191919", fg="white", font=("Helvetica", 10, "italic")).place(x=0,y=580)
 
