@@ -3,8 +3,13 @@
 An easy-to-use password generator.
 
 ## Prerequisites
+### CLI
 - Python 3.10.12;
-- Tkinter library for GUI
+  
+### GUI
+- Python 3.10.12;
+- Tkinter library;
+- PIL;
 
 ## Usage:
 ### CLI
