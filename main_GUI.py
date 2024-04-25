@@ -11,7 +11,7 @@ class GUI:
         self.window.geometry("500x600")
 
         # IMAGES
-        self.logo = PhotoImage(file="images/logo_black.png")  # Load the image
+        self.logo = PhotoImage(file="images/logo.png")  # Load the image
 
         key_image = Image.open("images/key_icon.png")
         key_image = key_image.resize((20, 20))
