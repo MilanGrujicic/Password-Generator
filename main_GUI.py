@@ -8,7 +8,7 @@ class GUI:
         self.window = Tk()
         self.window.title("Password Generator")
         self.window.config(bg="#191919")
-        self.window.geometry("500x600")
+        self.window.geometry("500x712")
 
         # IMAGES
         self.logo = ImageTk.PhotoImage(file="images/logo.png")  # Load the logo.
@@ -31,36 +31,50 @@ class GUI:
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
 
         # GUI components
-        self.numbers = Label(self.window, text="Letters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
-        self.numbers.grid(row=1, column=0)
+        self.frame_scales = Frame(self.window, bg='#191919')
+        self.frame_scales.grid(row=1, column=0, padx=100, sticky="nsew")
+        self.frame_scales.grid_propagate(True)
 
-        self.scale_numbers = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
-        self.scale_numbers.grid(row=2, column=0, pady=5)
+        self.numbers = Label(self.frame_scales, text="Letters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
+        self.numbers.pack(pady=10, padx=10)
 
-        self.letters = Label(self.window, text="Numbers", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
-        self.letters.grid(row=3, column=0)
+        self.scale_numbers = Scale(self.frame_scales, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground="black", border="2")
+        self.scale_numbers.pack(pady=10, padx=10)
 
-        self.scale_letters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
-        self.scale_letters.grid(row=4, column=0, pady=5)
+        self.letters = Label(self.frame_scales, text="Numbers", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
+        self.letters.pack(pady=10, padx=10)
 
-        self.special_characters = Label(self.window, text="Special Characters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
-        self.special_characters.grid(row=5, column=0)
+        self.scale_letters = Scale(self.frame_scales, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground="black", border="2")
+        self.scale_letters.pack(pady=10, padx=10)
 
-        self.scale_special_characters = Scale(self.window, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground = "black", border="2")
-        self.scale_special_characters.grid(row=6, column=0, pady=5)
+        self.special_characters = Label(self.frame_scales, text="Special Characters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
+        self.special_characters.pack(pady=10, padx=10)
 
-        self.create_password = Button(text="Generate \nPassword", width=80, bg="#fff500", highlightbackground = "black", border="2", image=key_icon, compound=RIGHT, command=self.parse_scale_values_into_password)
-        self.create_password.grid(row=7, column=0, pady=5)
+        self.scale_special_characters = Scale(self.frame_scales, from_=0, to=10, orient=HORIZONTAL, bg="#fff500", highlightbackground="black", border="2")
+        self.scale_special_characters.pack(pady=10, padx=10)
 
-        self.your_password_is = Label(text="Your password is: ", bg="#191919", fg="white", font=("Helvetica", 10, "bold"))
-        self.your_password_is.grid_forget()
+        self.output = Frame(self.window, bg="#191919")
+        self.output.grid(row=2, column=0, padx=100, sticky="nsew")
+        self.output.grid_propagate(True)
 
-        self.password = Text(bg="#191919", fg="white", height=1, width=15, borderwidth=0)
-        self.password.grid_forget()
+        self.create_password = Button(self.output, text="Generate \nPassword", width=80, bg="#fff500", highlightbackground="black", border="2", image=key_icon, compound=RIGHT, command=self.parse_scale_values_into_password)
+        self.create_password.pack(pady=10, padx=10)
 
-        self.close_button = Button(text="Exit", width=80, bg="#fff500", highlightbackground = "black", border="2", image=exit_icon, compound=RIGHT, command=self.window.destroy).place(x=195,y=538)
+        self.your_password_is = Label(self.output, text="Your password is: ", bg="#191919", fg="white", font=("Helvetica", 10, "bold"))
+        self.your_password_is.pack_forget()
 
-        self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#191919", fg="white", font=("Helvetica", 10, "italic")).place(x=0,y=580)
+        self.password = Text(self.output, bg="#191919", fg="white", height=1, width=15, borderwidth=0)
+        self.password.pack_forget()
+
+        self.footer = Frame(self.window, bg="#191919")
+        self.footer.grid(row=3, column=0, padx=5, sticky="ew")
+        self.output.grid_propagate(False)
+
+        self.close_button = Button(self.footer, text="Exit", width=80, bg="#fff500", highlightbackground="black", border="2", image=exit_icon, compound=RIGHT, command=self.window.destroy)
+        self.close_button.pack(pady=10, padx=10)
+
+        self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="#191919", fg="white", font=("Helvetica", 10, "italic")).place(x=0,y=694)
+
 
         self.window.mainloop()
 
@@ -79,10 +93,10 @@ class GUI:
 
     def make_output_visible(self, password):
         '''Once the password is generated, display it to the user.'''
-        self.your_password_is.grid(row=8, column=0, pady=5)
+        self.your_password_is.pack(pady=10, padx=10)
         self.password.insert(END, password)
         self.password.configure(state="disabled")
-        self.password.grid(row=9, column=0, pady=7)
+        self.password.pack(pady=10, padx=10)
 
     def is_password_text_empty(self):
         '''Verify whether the field the password is displayed is empty or not.'''
