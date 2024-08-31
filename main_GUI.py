@@ -11,7 +11,7 @@ class GUI:
         self.window.geometry("500x600")
 
         # IMAGES
-        self.logo = PhotoImage(file="images/logo.png")  # Load the image
+        self.logo = PhotoImage(file="images/logo.png")  # Load the logo.
 
         key_image = Image.open("images/key_icon.png")
         key_image = key_image.resize((20, 20))
@@ -21,16 +21,16 @@ class GUI:
         exit_image = exit_image.resize((20, 20))
         exit_icon = ImageTk.PhotoImage(exit_image)
 
-        # Create a canvas with the size of the logo or larger
+        # Create a canvas with the size of the logo.
         canvas_width = self.logo.width()
         canvas_height = self.logo.height() // 2.9
         canvas = Canvas(self.window, width=canvas_width, height=canvas_height, bg="#191919", highlightthickness=0)
         canvas.grid(row=0, column=0)
 
-        # Centering the image in the canvas
+        # Center the image in the canvas.
         canvas.create_image(canvas_width // 2, canvas_height // 2, image=self.logo)
 
-        # WIDGETS
+        # GUI components
         self.numbers = Label(self.window, text="Letters", bg="#191919", fg="white", font=("Helvetica", 12, "bold"))
         self.numbers.grid(row=1, column=0)
 
