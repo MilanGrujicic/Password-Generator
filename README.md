@@ -1,4 +1,5 @@
 # Password Generator
+![Image Alt Text](./Logos/logo_black_background.png)
 ## Description
 An easy-to-use password generator.
 
